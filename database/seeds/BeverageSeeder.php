@@ -12,8 +12,9 @@ class BeverageSeeder extends Seeder
     public function run()
     {
         DB::table('beverages')->insert([
-            'name' => "Sample Beverage",
-            'cost' => 1000,
+            'name' => "Sample Beverage2",
+            'cost' => 2000,
+            'about' => "This is a sample beverage2."
         ]);
     }
 }
