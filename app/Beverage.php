@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Beverage extends Model
 {
-    public function getPaginateByLimit(int $limit_count = 1)
+    
+    public function feature()
+    {
+        return $this->hasOne('App\Feature');
+    }
+    
+    public function getPaginateByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with("feature")->orderBy('id', 'asc')->paginate($limit_count);
     }
 }

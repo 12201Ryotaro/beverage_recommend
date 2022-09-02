@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class BeverageSeeder extends Seeder
 {
@@ -11,10 +12,22 @@ class BeverageSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('beverages')->insert([
-            'name' => "Sample Beverage2",
-            'cost' => 2000,
-            'about' => "This is a sample beverage2."
-        ]);
+        $fp = fopen(__DIR__ . '/production_data.csv', 'r');
+ 
+        // fgetcsvでファイルのデータを読み込む
+        while ($data = fgetcsv( $fp )) {
+            if ($data[0]!="Bottle"){
+            DB::table('beverages')->insert([
+            'name' => $data[0],
+            'cost' => (int)$data[1],
+            'about' => "",
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+            }
+        }
+ 
+        // ファイルを閉じる
+        fclose($fp);
     }
 }

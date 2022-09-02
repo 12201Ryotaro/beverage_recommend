@@ -9,13 +9,18 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Beverage Recommend Site</h1>
         <div class='beverages'>
             @foreach ($beverages as $beverage)
                 <div class='beverage'>
-                    <h2 class='name'>{{ $beverage->name }}</h2>
-                    <p class='cost'>{{ $beverage->cost }}</p>
+                    <h2 class='title'>
+                        <a href="/beverages/{{ $beverage->id }}">{{ $beverage->name }}</a>
+                    </h2>
+                    <img class='bottle_img' src="{{ asset("images/".$beverage->image_path) }}" alt="">
+                    <p>{{ $beverage->image_path }}</p>
+                    <p class='cost'>参考価格 ${{ $beverage->cost }}</p>
                     <p class='about'>{{ $beverage->about }}</p>
+                    <a href="">{{ $beverage->feature->region}}</a>
+                    <a href="">{{ $beverage->feature}}</a>
                 </div>
             @endforeach
         </div>

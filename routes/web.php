@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/beverages', 'BeverageController@index');
+Route::get('/beverages/{beverage}', 'BeverageController@show');
