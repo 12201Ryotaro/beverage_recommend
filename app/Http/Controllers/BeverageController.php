@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Beverage;
 use App\Feature;
+use Illuminate\Support\Facades\Storage;
 
 class BeverageController extends Controller
 {
