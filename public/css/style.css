@@ -1,0 +1,68 @@
+body {
+    background-color: #F2EEAC;
+}
+
+.bottle_img {
+  max-height: 400px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 70%;
+  margin: 0 0;
+  padding-top: 30px;
+}
+
+.feature {
+  width: calc(100% / 6 - 10px);
+  margin-bottom: 0px;
+  padding: 20px 5px;
+  text-align: center;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #400A05;/*文字色*/
+  background: #FFF;
+  border: solid 3px #400A05;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+
+.beverage {
+    background-color: white;
+    margin: 30px 0px;
+    border: solid 2px gray;
+}
+
+.image_and_about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.search_url {
+    margin:auto;
+    font-size: large;
+}
+
+.search_image {
+    max-height: 20px;
+    margin: 0 0 0 20px;
+}
+
+.about {
+    border: solid 2px gray;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.whiskey_name {
+    color:#400A05;
+    font-weight: bold;
+}
+
+#site_icon {
+    font-weight: bold;
+    color:#A63921;
+}

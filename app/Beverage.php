@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Beverage extends Model
 {
@@ -15,6 +16,19 @@ class Beverage extends Model
     public function getPaginateByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this::with("feature")->orderBy('id', 'asc')->paginate($limit_count);
+        $beverages = $this::with("feature")->orderBy('id', 'asc');
+        return $beverages->paginate($limit_count);
+    }
+    
+    public function getBevFeature()
+    {
+        $features = $this::with("feature")->get();
+        return $features;
+    }
+    
+    public function checkerBeverage()
+    {
+        $beverages = gettype($this::with("feature")->orderBy('id', 'asc'));
+        return $beverages;
     }
 }

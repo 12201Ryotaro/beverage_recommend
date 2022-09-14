@@ -11,12 +11,17 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/beverages', 'BeverageController@index');
+Route::get('/', 'BeverageController@index');
 Route::get('/beverages/{beverage}', 'BeverageController@show');
+Route::get('/preference/select', 'PreferenceController@select');
+Route::post('/preference/store', 'PreferenceController@store');
+Route::get('/preference/{user}', 'PreferenceController@show');
